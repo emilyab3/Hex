@@ -1,0 +1,13 @@
+CFLAGS = -Wall -pedantic -std=gnu99 -g
+
+bob: bob.o winning.o gameIO.o
+	gcc $(CFLAGS) bob.o winning.o gameIO.o -o bob
+
+bob.o: bob.c bob.h winning.h gameIO.h structs.h
+	gcc $(CFLAGS) -c bob.c
+
+winning.o: winning.c winning.h structs.h
+	gcc $(CFLAGS) -c winning.c
+	
+gameIO.o: gameIO.c gameIO.h structs.h
+	gcc $(CFLAGS) -c gameIO.c
